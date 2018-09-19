@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainDisplayController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#newMenuAction" text="New" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFileMenuAction" text="Open..." />
+                        <MenuItem fx:id="saveFileMenuItem" mnemonicParsing="false" onAction="#saveFileMenuAction" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveAsFileMenuAction" text="Save As..." />
+                    <MenuItem mnemonicParsing="false" onAction="#closeMenuAction" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#manageCategoryMenuAction" text="Manage Categories" />
+                        <MenuItem mnemonicParsing="false" onAction="#manageTypeMenuAction" text="Manage Types" />
+                        <MenuItem mnemonicParsing="false" onAction="#newCreditMenuAction" text="New Credit" />
+                        <MenuItem mnemonicParsing="false" onAction="#newDebitMenuAction" text="New Debit" />
+                    <MenuItem mnemonicParsing="false" onAction="#deleteCreditMenuAction" text="Delete Selected Credit" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteDebitMenuAction" text="Delete Selected Debit" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Report">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#generateReportMenuAction" text="Generate Report" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#aboutMenuAction" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <AnchorPane prefHeight="350.0" prefWidth="283.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="350.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="creditTable" prefHeight="298.0" prefWidth="341.0" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="creditDateColumn" editable="false" minWidth="3.5" prefWidth="46.0" resizable="false" text="Date" />
+                              <TableColumn fx:id="creditDescriptionColumn" editable="false" minWidth="0.0" prefWidth="102.5" resizable="false" text="Description" />
+                              <TableColumn fx:id="creditAmountColumn" editable="false" minWidth="0.0" prefWidth="69.0" resizable="false" text="Amount" />
+                              <TableColumn fx:id="creditCategoryColumn" editable="false" minWidth="0.0" prefWidth="46.5" resizable="false" text="Category" />
+                              <TableColumn fx:id="creditTypeColumn" editable="false" minWidth="0.1" prefWidth="65.0" resizable="false" text="Type" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#newCreditMenuAction" text="New Credit" />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteCreditMenuAction" text="Delete Selected Credit" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="debitTable" layoutX="10.0" layoutY="10.0" prefHeight="298.0" prefWidth="341.0" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="debitDateColumn" editable="false" minWidth="3.5" prefWidth="44.5" resizable="false" text="Date" />
+                              <TableColumn fx:id="debitDescriptionColumn" editable="false" prefWidth="105.5" resizable="false" text="Description" />
+                              <TableColumn fx:id="debitAmountColumn" editable="false" prefWidth="75.0" resizable="false" text="Amount" />
+                              <TableColumn fx:id="debitCategoryColumn" editable="false" prefWidth="91.0" resizable="false" text="Category" />
+                              <TableColumn fx:id="debitTypeColumn" editable="false" prefWidth="83.0" resizable="false" text="Type" />
+                           </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#newDebitMenuAction" text="New Debit" />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteDebitMenuAction" text="Delete Selected Debit" />
+                                 </items>
+                              </ContextMenu>
+                           </contextMenu>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <AnchorPane prefHeight="346.0" prefWidth="135.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TreeView fx:id="dateTree" layoutX="-75.0" layoutY="-27.0" prefHeight="345.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+         </left>
+         <right>
+            <AnchorPane prefHeight="350.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="350.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TextArea fx:id="creditTextArea" editable="false" prefHeight="350.0" prefWidth="137.0" wrapText="true" VBox.vgrow="ALWAYS" />
+                        <TextArea fx:id="debitTextArea" editable="false" prefHeight="350.0" prefWidth="137.0" wrapText="true" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+         </right>
+         <bottom>
+            <GridPane alignment="CENTER" prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="totalCreditLabel" text="Total Credits: " GridPane.halignment="LEFT">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="totalDebitLabel" text="Total Debits:" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="totalNetLabel" text="Net Amount: " GridPane.columnIndex="2" GridPane.halignment="LEFT">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

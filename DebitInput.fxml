@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DebitInputController">
+   <children>
+      <GridPane layoutX="30.0" layoutY="14.0" prefHeight="212.0" prefWidth="360.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="201.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="202.0" minWidth="10.0" prefWidth="199.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Enter a description: " />
+            <Label text="Enter the date: " GridPane.rowIndex="1" />
+            <Label text="Enter the amount:  " GridPane.rowIndex="2" />
+            <Label text="Choose a category: " GridPane.rowIndex="3" />
+            <Label text="Choose a transaction type: " GridPane.rowIndex="4" />
+            <TextField fx:id="descTextBox" prefHeight="15.0" prefWidth="60.0" GridPane.columnIndex="1" />
+            <HBox fillHeight="false" prefHeight="15.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="monthTextBox" alignment="CENTER" prefHeight="25.0" prefWidth="40.0" promptText="MM" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="10.0" top="9.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="30.0" prefWidth="12.0" text=" /">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="2.0" right="2.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="dayTextBox" alignment="CENTER" prefHeight="25.0" prefWidth="40.0" promptText="DD">
+                     <HBox.margin>
+                        <Insets bottom="7.0" top="9.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label prefHeight="30.0" prefWidth="12.0" text=" /">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="2.0" right="2.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="yearTextBox" alignment="CENTER" prefHeight="25.0" prefWidth="48.0" promptText="YYYY">
+                     <HBox.margin>
+                        <Insets bottom="7.0" top="9.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <TextField fx:id="amountTextBox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="catChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="typeChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Button layoutX="125.0" layoutY="253.0" mnemonicParsing="false" onAction="#entryButtonListener" prefHeight="25.0" prefWidth="75.0" text="Enter" />
+      <Button layoutX="210.0" layoutY="253.0" mnemonicParsing="false" onAction="#cancelButtonListener" prefHeight="25.0" prefWidth="75.0" text="Cancel" />
+      <Label fx:id="errorLabel" layoutX="15.0" layoutY="205.0" prefHeight="40.0" prefWidth="360.0" textFill="RED" wrapText="true" />
+   </children>
+</AnchorPane>
